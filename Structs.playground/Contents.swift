@@ -1,110 +1,80 @@
-class Person_ {
-    let firstName: String
-    let lastName: String
-    var fullName: String {
-        return "\(firstName) \(lastName)"
-    }
 
-    init(firstName: String, lastName: String) {
-        self.firstName = firstName
-        self.lastName = lastName
+class Canine {
+    var name: String
+    var legs: Int
+    
+    init(name: String, legs: Int) {
+        self.name = name
+        self.legs = legs
     }
-
-    func goForARun() {
-        print("I love running!")
+    
+    func bark() {
+        print("woof")
     }
+    
+    func loseALeg() {
+        legs -= 1
+    }
+    
 }
 
-let jim = Person_(firstName: "Jimbo", lastName: "Guiseppe")
-print(jim.fullName)
-jim.goForARun()
 
-
-struct Person {
-    let firstName: String
-    let lastName: String
-    var fullName: String {
-        return "\(firstName) \(lastName)"
+struct Dog {
+    var name: String
+    var legs: Int
+    
+    func back() {
+        print("woof")
     }
-
-    func goForARun() {
-        print("I love running!")
+    
+    mutating func loseALeg() {
+        legs -= 1
     }
+    
 }
 
-let jim2 = Person(firstName: "Jimbo", lastName: "Guiseppe")
-print(jim.fullName)
-jim.goForARun()
+
+var wolf = Canine(name: "Wolf", legs: 4)
+var wolfy = wolf
+
+wolfy.bark()
+wolfy.loseALeg()
+
+print(wolfy.legs)
+
+wolf.loseALeg()
+
+print(wolf.legs)
+
+//OOhhh, aaahhh
+
+
+var dog = Dog(name: "Dog", legs: 4)
+
+var doggy = dog
+
+dog.loseALeg()
+
+print(dog.legs)
+
+print(doggy.legs)
+
+
+//Ohhhh, aaahhhhhHHHH!
 
 
 
-class PersonReference {
-    var firstName: String
-    var lastName: String
-    var fullName: String {
-        return "\(firstName) \(lastName)"
-    }
-
-    init(firstName: String, lastName: String) {
-        self.firstName = firstName
-        self.lastName = lastName
-    }
-}
-
-var person1 = PersonReference(firstName: "Luke", lastName: "Skywalker")
-var person2 = person1
-print(person1.fullName)
-print(person2.fullName)
-person1.firstName = "Han"
-person1.lastName = "Solo"
-print(person1.fullName)
-print(person2.fullName)
 
 
 
-struct PersonValue {
-    var firstName: String
-    var lastName: String
-    var fullName: String {
-        return "\(firstName) \(lastName)"
-    }
-}
-
-var hero1 = PersonValue(firstName: "Luke", lastName: "Skywalker")
-var hero2 = hero1
-print(hero1.fullName)
-print(hero2.fullName)
-hero1.firstName = "Han"
-hero1.lastName = "Solo"
-print(hero1.fullName)
-print(hero2.fullName)
 
 
 
-class Mug_ {
-    var amountOfCoffee: Double = 0.0
-}
-
-func fillMug_(mug: Mug_) {
-    mug.amountOfCoffee = 10.0
-}
-
-let myMug_ = Mug_()
-print(myMug_.amountOfCoffee)
-fillMug_(myMug_)
-print(myMug_.amountOfCoffee)
 
 
 
-struct Mug {
-    var amountOfCoffee: Double = 0.0
 
-    mutating func fillMug() {
-        amountOfCoffee = 10.0
-    }
-}
 
-var myMug1 = Mug()
-print(myMug1.amountOfCoffee)
-myMug1.fillMug()
-print(myMug1.amountOfCoffee)
+
+
+
